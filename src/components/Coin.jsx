@@ -1,5 +1,5 @@
 import "./coin.css";
-import { useState, useEffect } from "react";
+// import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Coin = ({
@@ -22,14 +22,6 @@ const Coin = ({
 
    const fetchChartData = async () => {
     const { fetchedData } = await axios.get(api);
-
-
-
-
-
- 
-
-
 
     setData(fetchedData);
     console.log(data);

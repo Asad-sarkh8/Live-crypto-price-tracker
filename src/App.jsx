@@ -11,7 +11,8 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [filteredCoins, setFilteredCoins] = useState([]);
   const [page, setPage] = useState(1);
-  const [filteredItem, setFIlteredItem] = useState([]);
+  const [filteredItem, setFilteredItem] = useState([]);
+  const [items, setItems] = useState([]);
 
   const [date, setDate] = useState(new Date());
   function refreshClock() {
@@ -62,46 +63,50 @@ function App() {
 
   useEffect(() => {
     const item = coins.slice(0, 9);
-    setFIlteredItem(item);
+    setFilteredItem(item);
   }, [coins]);
 
-  const items = filteredItem.map((coin) => {
-    return (
-      <div className="carouselItem">
-        <img
-          src={coin?.image}
-          alt={coin.name}
-          height="60"
-          style={{ marginBottom: 10 }}
-        />
-        <span className="detail">
-          <span className="symbols">
-            <span className="symbolDetail">{coin.symbol}</span>
-            {coin.price_change_percentage_1h_in_currency > 0 ? (
-              <span className="percentage green">
-                {coin?.price_change_percentage_1h_in_currency
-                  ?.toFixed(2)
-                  ?.toLocaleString()}
-                %
+  useEffect(() => {
+    setItems(
+      filteredItem.map((coin) => {
+        return (
+          <div className="carouselItem" key={coin.id}>
+            <img
+              src={coin?.image}
+              alt={coin.name}
+              height="60"
+              style={{ marginBottom: 10 }}
+            />
+            <span className="detail">
+              <span className="symbols">
+                <span className="symbolDetail">{coin.symbol}</span>
+                {coin.price_change_percentage_1h_in_currency > 0 ? (
+                  <span className="percentage green">
+                    {coin?.price_change_percentage_1h_in_currency
+                      ?.toFixed(2)
+                      ?.toLocaleString()}
+                    %
+                  </span>
+                ) : (
+                  <span className="percentage red">
+                    {coin?.price_change_percentage_1h_in_currency
+                      ?.toFixed(2)
+                      ?.toLocaleString()}
+                    %
+                  </span>
+                )}
               </span>
-            ) : (
-              <span className="percentage red">
-                {coin?.price_change_percentage_1h_in_currency
-                  ?.toFixed(2)
-                  ?.toLocaleString()}
-                %
+              <span className="prices">
+                ${coin?.current_price?.toFixed(2)?.toLocaleString()}
               </span>
-            )}
-          </span>
-          <span className="prices">
-            ${coin?.current_price?.toFixed(2)?.toLocaleString()}
-          </span>
-        </span>
-      </div>
+            </span>
+          </div>
+        );
+      })
     );
-  });
-
-  const response = {
+    console.log(items);
+  }, [coins]);
+  const responsive = {
     0: {
       items: 2,
     },
@@ -109,7 +114,7 @@ function App() {
       items: 3,
     },
     550: {
-      items: 5,
+      items: 1,
     },
   };
 
@@ -123,16 +128,18 @@ function App() {
       </header>
       <div className="slider">
         <AliceCarousel
-          mouseTracking
+          autoPlay
+          autoPlayStrategy="none"
+          autoPlayInterval={1000}
+          animationDuration={1000}
+          animationType="slide"
           infinite
-          autoPlayInterval={400}
-          animationDuration={400}
+          touchTracking={false}
           disableDotsControls
           disableButtonsControls
-          responsive={response}
-          autoPlay
-          autoPlayStrategy
           items={items}
+          mouseTracking
+          // responsive={responsive}
         />
       </div>
       <div className="search">
@@ -176,4 +183,5 @@ function App() {
     </div>
   );
 }
+
 export default App;
