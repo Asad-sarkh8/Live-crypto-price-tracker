@@ -1,0 +1,208 @@
+
+
+.header{
+    max-width: 100%;
+    padding: 6px;
+    margin: 0;
+    background-color: rgba(15, 15, 13, 0.8);
+    
+    
+}
+.slider{
+    max-width: 100%;
+    background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fblog.equinix.com%2Fwp-content%2Fuploads%2F2017%2F10%2Fblockchain.jpg&f=1&nofb=1");
+    height: 250px;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+}
+.small-text{
+    color:rgb(165, 163, 163, 0.5)
+}
+
+.head {
+    margin: auto;
+    display: flex;
+    align-items:baseline;
+}
+.text {
+    font-size: 30px;
+    font-weight: bold;
+    color: rgb(165, 163, 163);
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+}
+
+.input{
+    background: linear-gradient(45deg, #ac5cee, rgb(88, 88, 235));
+    width: 50%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 6px;
+}
+.input::placeholder{
+    color: rgb(209, 207, 207);
+    text-decoration: none;
+}
+
+
+.card{
+    width: 280px;
+    border-radius: 10px;
+    box-shadow: 10px -2px 20px 2px rgb(0 0 0 / 40%);
+    color: rgb(165, 163, 163);
+    background-color: rgba(15, 15, 13, 0.8);
+    margin: 25px auto;
+    padding: 25px 15px;
+    
+}
+
+.cards-structure{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.price{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(81, 233, 233);
+}
+
+.coin-icon{
+    max-width:60px;
+    height: 50px;
+}
+
+.top,
+.bottom {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+.top-name{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 20px;
+}
+
+.name{
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 1;
+    margin: 0;
+    margin-left: 5px;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+    margin-top: 5px;
+}
+
+.code{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 2;
+    margin: 0;
+    margin-left: 5px;
+    color: gray;
+}
+
+.coin-icon{
+    width: 100px;
+}
+
+.hourly-change {
+    font-weight: 600;
+    font-size: 40px;
+    margin: 0;
+    margin-right: 10px;
+    letter-spacing: -5px;
+    width: auto;
+}
+
+.details {
+    padding-left: 10px;
+    width: 100%;
+    margin-top: 15px;
+   
+}
+
+.red{
+    color: red;
+}
+
+.green{
+    color: green;
+}
+
+.label {
+    font-weight: 400;
+    text-align: left;
+    font-size: 12px;
+    
+}
+
+.value {
+    font-weight: 600;
+    font-size: 12px;
+    text-align: right;
+    
+}
+.pages {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    
+}
+
+.carouselItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    color:azure;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.percentage{
+    font-size: 14px;
+    padding-left: 10px;
+    
+}
+.symbolDetail{
+    font-size: 12px;
+    color: rgb(165, 163, 163);
+}
+.prices{
+    font-size: 18px;
+    color:aqua;
+    margin-top: 5px;
+}
