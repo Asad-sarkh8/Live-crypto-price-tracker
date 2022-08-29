@@ -1,6 +1,5 @@
 import "./coin.css";
-// import { useState, useEffect } from "react";
-import axios from "axios";
+import Chart from "./Chart-2";
 
 const Coin = ({
   price,
@@ -14,22 +13,8 @@ const Coin = ({
   daily,
   monthly,
   ath,
+  id,
 }) => {
-  /*const [data, setData] = useState([]);
-  const api = () => {
-    "https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=30";
-  };
-
-   const fetchChartData = async () => {
-    const { fetchedData } = await axios.get(api);
-
-    setData(fetchedData);
-    console.log(data);
-  };
-  useEffect(() => {
-    fetchChartData();
-  });
-*/
   return (
     <div className="card">
       <div className="top">
@@ -45,9 +30,15 @@ const Coin = ({
 
       <div className="bottom">
         {hourly < 0 ? (
-          <p className="hourly-change red">{hourly?.toFixed(3)}%</p>
+          <p className="hourly-change red">
+            {hourly?.toFixed(2)}
+            <span className="percentage">%</span>
+          </p>
         ) : (
-          <p className="hourly-change green">{hourly?.toFixed(3)}%</p>
+          <p className="hourly-change green">
+            {hourly?.toFixed(2)}
+            <span className="percentage">%</span>
+          </p>
         )}
 
         <div className="details">
@@ -96,6 +87,9 @@ const Coin = ({
             </span>
           </div>
         </div>
+      </div>
+      <div>
+        <Chart id={id} />
       </div>
     </div>
   );

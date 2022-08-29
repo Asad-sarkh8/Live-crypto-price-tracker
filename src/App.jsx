@@ -4,6 +4,7 @@ import Coin from "./components/Coin";
 import { Pagination } from "@mui/material";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AliceCarousel from "react-alice-carousel";
+import Footer from "./components/Footer";
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -59,6 +60,7 @@ function App() {
         coin.name?.toLocaleLowerCase()?.includes(search.toLocaleLowerCase())
       )
     );
+    setPage(1);
   }, [coins, search]);
 
   useEffect(() => {
@@ -104,19 +106,7 @@ function App() {
         );
       })
     );
-    console.log(items);
   }, [coins]);
-  const responsive = {
-    0: {
-      items: 2,
-    },
-    400: {
-      items: 3,
-    },
-    550: {
-      items: 1,
-    },
-  };
 
   return (
     <div className="app">
@@ -139,7 +129,6 @@ function App() {
           disableButtonsControls
           items={items}
           mouseTracking
-          // responsive={responsive}
         />
       </div>
       <div className="search">
@@ -150,6 +139,7 @@ function App() {
           onChange={handleChange}
         />
       </div>
+      {loading && <div className="load">Loading....</div>}
       <div className="cards-structure">
         {filteredCoins
           .slice((page - 1) * 10, (page - 1) * 10 + 10)
@@ -167,9 +157,11 @@ function App() {
               monthly={coin.price_change_percentage_30d_in_currency}
               ath={coin.ath_change_percentage}
               price={coin.current_price}
+              id={coin.id}
             />
           ))}
       </div>
+
       <Pagination
         className="pages"
         count={(filteredCoins?.length / 10).toFixed(0)}
@@ -180,6 +172,9 @@ function App() {
           window.scrollTo(0, "smooth");
         }}
       />
+      <div className="">
+        <Footer />
+      </div>
     </div>
   );
 }
