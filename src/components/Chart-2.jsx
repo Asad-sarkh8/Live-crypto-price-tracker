@@ -14,7 +14,6 @@ const Chart = ({ id }) => {
   const fetchChartData = async () => {
     const { data } = await axios.get(api(id, days));
     setData(data.prices);
-    console.log(data.prices);
   };
   useEffect(() => {
     // (async () => await fetchChartData())(); // immediately invoked function (IIF)

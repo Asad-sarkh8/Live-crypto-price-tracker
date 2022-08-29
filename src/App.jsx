@@ -19,6 +19,7 @@ function App() {
   function refreshClock() {
     setDate(new Date());
   }
+
   useEffect(() => {
     const timerId = setInterval(refreshClock, 1000);
     return function cleanup() {
