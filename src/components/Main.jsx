@@ -13,7 +13,6 @@ const Main = () => {
   const [page, setPage] = useState(1);
   const [filteredItem, setFilteredItem] = useState([]);
   const [items, setItems] = useState([]);
-  const [slider, setSlider] = useState(true);
 
   const [date, setDate] = useState(new Date());
   function refreshClock() {
@@ -47,7 +46,6 @@ const Main = () => {
       })
       .catch((err) => {
         console.error(err);
-        <div className="load">Error while loading!</div>;
         setLoading(false);
       });
   }, [date?.getMinutes()]);
@@ -108,13 +106,12 @@ const Main = () => {
         );
       })
     );
-    setSlider(false);
   }, [coins]);
 
   return (
     <div>
+      {!items && <div className="load">Loading....</div>}
       <div className="slider">
-        {slider && <div className="load">Loading....</div>}
         <AliceCarousel
           autoPlay
           autoPlayStrategy="none"
