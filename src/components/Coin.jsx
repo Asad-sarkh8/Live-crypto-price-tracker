@@ -1,5 +1,6 @@
 import "./coin.css";
 import Chart from "./Chart-2";
+// import { useState } from "react";
 
 const Coin = ({
   price,
@@ -15,6 +16,15 @@ const Coin = ({
   ath,
   id,
 }) => {
+  // const [state, setState] = useState(false);
+  // const chart = () => {
+  //   setState(true);
+  // };
+
+  // const hidechart = () => {
+  //   setState(false);
+  // };
+
   return (
     <div className="card">
       <div className="top">
@@ -82,15 +92,23 @@ const Coin = ({
           </div>
           <div className="row">
             <span className="label">FDV</span>
-            <span className="value">
-              ${Math.round(fdv * 0.000001).toLocaleString()}M
-            </span>
+            {!Math.round(fdv * 0.000001) < 1 ? (
+              <span className="value">
+                ${Math.round(fdv * 0.000001).toLocaleString()}M
+              </span>
+            ) : (
+              <span className="value">less than $1M</span>
+            )}
           </div>
         </div>
       </div>
-      <div>
-        <Chart id={id} />
-      </div>
+      <Chart id={id} />
+      {/* <div>{state && <Chart id={id} />}</div> */}
+      {/* {!state ? (
+        <button onClick={chart}>view</button>
+      ) : (
+        <button onClick={hidechart}>hide</button>
+      )} */}
     </div>
   );
 };
