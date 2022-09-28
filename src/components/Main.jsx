@@ -61,7 +61,7 @@ const Main = () => {
       )
     );
     setPage(1);
-  }, [search]);
+  }, [coins, search]);
 
   useEffect(() => {
     const item = coins.slice(0, 9);
