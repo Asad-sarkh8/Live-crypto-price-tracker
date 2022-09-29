@@ -78,6 +78,12 @@
     flex-wrap: wrap;
 }
 
+.loader{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+}
+
 .price{
     font-size: 18px;
     font-weight: 600;

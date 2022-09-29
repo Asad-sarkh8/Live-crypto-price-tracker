@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import "./coin.css";
 import Coin from "./Coin";
-import { Pagination } from "@mui/material";
+import { LinearProgress, Pagination } from "@mui/material";
 import "react-alice-carousel/lib/alice-carousel.css";
 import AliceCarousel from "react-alice-carousel";
+import { CircularProgress } from "@mui/material";
 
 const Main = () => {
   const [coins, setCoins] = useState([]);
@@ -13,6 +14,7 @@ const Main = () => {
   const [page, setPage] = useState(1);
   const [filteredItem, setFilteredItem] = useState([]);
   const [items, setItems] = useState([]);
+  const [carouselLoader, setcarouselLoader] = useState(true);
 
   const [date, setDate] = useState(new Date());
   function refreshClock() {
@@ -106,11 +108,11 @@ const Main = () => {
         );
       })
     );
+    setcarouselLoader(false);
   }, [filteredItem]);
 
   return (
     <div>
-      {!items && <div className="load">Loading....</div>}
       <div className="slider">
         <AliceCarousel
           autoPlay
@@ -126,6 +128,7 @@ const Main = () => {
           mouseTracking
         />
       </div>
+      {carouselLoader && <LinearProgress color="warning" />}
       <div className="search">
         <input
           type="text"
@@ -134,7 +137,11 @@ const Main = () => {
           onChange={handleChange}
         />
       </div>
-      {loading && <div className="load">Loading....</div>}
+      <div className="loader">
+        {loading && (
+          <CircularProgress color="warning" size={70} thickness={3} />
+        )}
+      </div>
       <div className="cards-structure">
         {filteredCoins
           .slice((page - 1) * 10, (page - 1) * 10 + 10)

@@ -1,5 +1,6 @@
 import "./coin.css";
 import Chart from "./Chart-2";
+// import { Button } from "@mui/material";
 // import { useState } from "react";
 
 const Coin = ({
@@ -103,11 +104,15 @@ const Coin = ({
         </div>
       </div>
       <Chart id={id} />
-      {/* <div>{state && <Chart id={id} />}</div> */}
-      {/* {!state ? (
-        <button onClick={chart}>view</button>
+      {/* <div>{state && <Chart id={id} />}</div>
+      {!state ? (
+        <Button varient="outlined" onClick={chart}>
+          View
+        </Button>
       ) : (
-        <button onClick={hidechart}>hide</button>
+        <Button varient="outlined" onClick={hidechart}>
+          Hide
+        </Button>
       )} */}
     </div>
   );
