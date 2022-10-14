@@ -75,35 +75,37 @@ const Main = () => {
       filteredItem.map((coin) => {
         return (
           <div className="carouselItem" key={coin.id}>
-            <img
-              src={coin?.image}
-              alt={coin.name}
-              height="60"
-              style={{ marginBottom: 10 }}
-            />
-            <span className="detail">
-              <span className="symbols">
-                <span className="symbolDetail">{coin.symbol}</span>
-                {coin.price_change_percentage_1h_in_currency > 0 ? (
-                  <span className="percentage green">
-                    {coin?.price_change_percentage_1h_in_currency
-                      ?.toFixed(2)
-                      ?.toLocaleString()}
-                    %
-                  </span>
-                ) : (
-                  <span className="percentage red">
-                    {coin?.price_change_percentage_1h_in_currency
-                      ?.toFixed(2)
-                      ?.toLocaleString()}
-                    %
-                  </span>
-                )}
+            <div className="item-backdrop">
+              <img
+                src={coin?.image}
+                alt={coin.name}
+                height="60"
+                style={{ marginBottom: 10 }}
+              />
+              <span className="detail">
+                <span className="symbols">
+                  <span className="symbolDetail">{coin.symbol}</span>
+                  {coin.price_change_percentage_1h_in_currency > 0 ? (
+                    <span className="percentage green">
+                      {coin?.price_change_percentage_1h_in_currency
+                        ?.toFixed(2)
+                        ?.toLocaleString()}
+                      %
+                    </span>
+                  ) : (
+                    <span className="percentage red">
+                      {coin?.price_change_percentage_1h_in_currency
+                        ?.toFixed(2)
+                        ?.toLocaleString()}
+                      %
+                    </span>
+                  )}
+                </span>
+                <span className="prices">
+                  ${coin?.current_price?.toFixed(2)?.toLocaleString()}
+                </span>
               </span>
-              <span className="prices">
-                ${coin?.current_price?.toFixed(2)?.toLocaleString()}
-              </span>
-            </span>
+            </div>
           </div>
         );
       })
@@ -167,11 +169,11 @@ const Main = () => {
       <Pagination
         className="pages"
         count={(filteredCoins?.length / 10).toFixed(0)}
-        color="secondary"
-        size="small"
+        color="primary"
+        size="medium"
         onChange={(_, value) => {
           setPage(value);
-          window.scrollTo(0, "smooth");
+          window.scrollTo({ top: 0, behavior: "smooth" });
         }}
       />
     </div>

@@ -1,6 +1,5 @@
 import "./coin.css";
 import Chart from "./Chart-2";
-// import { Button } from "@mui/material";
 // import { useState } from "react";
 
 const Coin = ({

@@ -55,11 +55,17 @@
     padding: 15px 20px;
     border: none;
     border-radius: 6px;
+    color: white;
+    letter-spacing: 3px;
 }
 .input::placeholder{
     color: rgb(209, 207, 207);
     text-decoration: none;
 }
+.input:focus-visible{
+    outline: 5px solid #420b6e;
+}
+
 
 
 .card{
@@ -88,6 +94,7 @@
     font-size: 18px;
     font-weight: 600;
     color: goldenrod;
+    letter-spacing: 2px;
 }
 
 .coin-icon{
@@ -141,10 +148,9 @@
 
 .hourly-change {
     font-weight: 600;
-    font-size: 40px;
+    font-size: 35px;
     margin: 0;
-    margin-right: 10px;
-    letter-spacing: -5px;
+    margin-right: 7px;
     width: auto;
 }
 
@@ -190,17 +196,25 @@
 
 .carouselItem {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    cursor: pointer;
+    flex-direction: column;
     text-transform: uppercase;
     color:azure;
+}
+.item-backdrop{
+    padding: 15px;
+    backdrop-filter: saturate(200%) blur(15px);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .detail {
     display: flex;
     flex-direction: column;
     align-items: center;
+    letter-spacing: 2px;
 }
 
 .percentage{
@@ -216,6 +230,7 @@
     font-size: 18px;
     color:goldenrod;
     margin-top: 5px;
+
 }
 
 .chart{
@@ -293,3 +308,33 @@
     padding-top: 8px;
     padding-left: 15px;
 }
+
+.github{
+    text-decoration: none;
+    margin-left: 7px;
+    color: goldenrod;
+}
+
+
+@media screen and (min-width: 480px) {
+    .card {
+      width: 380px;
+    }
+
+    .price{
+        font-size: 25px;
+    }
+
+    .hourly-change{
+        font-size: 45px;
+    }
+
+    .label{
+        font-size: 16px;
+        line-height: 25px;
+    }
+    
+    .value{
+        font-size: 16px;
+    }
+  }

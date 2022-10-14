@@ -25,7 +25,15 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <div className="rights">Copyright © 2022</div>
+      <div className="rights">
+        Copyright ©{" "}
+        <a
+          href="https://github.com/Asad-sarkh8?tab=repositories"
+          className="github"
+        >
+          ASAD_RAFIQUE
+        </a>
+      </div>
     </footer>
   );
 };
