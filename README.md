@@ -2,6 +2,9 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+![image](https://github.com/Asad-sarkh8/Live-crypto-price-tracker/assets/83243854/872c0499-6648-4a9e-b803-46c53719655d)
+
+
 ## Available Scripts
 
 In the project directory, you can run:
